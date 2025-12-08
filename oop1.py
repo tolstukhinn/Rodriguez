@@ -4,7 +4,7 @@
 # Добавьте метод bark, который выводит на экран строку: "[имя] говорит: Гав!".
 # Создайте объект класса Dog с именем "Барсик" и вызовите его метод bark.
 
-class Dog():
+class Dog:
     def __init__(self, name):
         self.name = name
     def bark(self):
@@ -22,7 +22,7 @@ my_dog.bark()
 # Создайте объект класса Book с названием "Мастер и Маргарита" и автором "Булгаков".
 # Выведите на экран результат вызова метода get_info для этого объекта.
 
-class Book():
+class Book:
     def __init__(self, title, author):
         self.title = title
         self.author = author
@@ -45,7 +45,7 @@ print(my_book.get_info())
 # Внесите ещё 500 на счёт.
 # Выведите на экран итоговый баланс, используя метод get_balance().
 
-class BankAccount():
+class BankAccount:
     def __init__(self, owner):
         self.owner = owner
         self.balance = 0
@@ -71,7 +71,7 @@ print(my_bank_account.get_balance())
 # student2 — имя "Петр", номер "S67890"
 # Вызовите метод introduce для каждого объекта.
 
-class Student():
+class Student:
     def __init__(self, name, student_id):
         self.name = name
         self.student_id = student_id
@@ -94,7 +94,7 @@ student2.introduce()
 # Создайте объект класса Rectangle с длиной 5 и шириной 3.
 # Выведите на экран площадь и периметр этого прямоугольника, вызвав соответствующие методы.
 
-class Rectangle():
+class Rectangle:
     def __init__(self, length, width):
         self.length = length
         self.width = width
@@ -118,7 +118,7 @@ print(my_rectangle.perimeter())
 # Создайте объект класса Car с маркой "Toyota", моделью "Camry", годом выпуска 2018.
 # Вызовите метод get_age с текущим годом 2025 и выведите результат на экран.
 
-class Car():
+class Car:
     def __init__(self, brand, model, year):
         self.brand = brand
         self.model = model
@@ -174,4 +174,3 @@ print(book.borrow())
 print(book.get_info())
 book.return_book()
 print(book.get_info())
-
