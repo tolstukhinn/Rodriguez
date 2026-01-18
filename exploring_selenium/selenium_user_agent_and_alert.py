@@ -39,14 +39,6 @@ alert.accept()
 time.sleep(3)
 
 
-
-
-
-
-
-
-
-
 # options = webdriver.ChromeOptions()
 # options.add_argument("--disable-blink-features=AutomationControlled")
 # options.add_experimental_option("excludeSwitches", ["enable-automation"])
