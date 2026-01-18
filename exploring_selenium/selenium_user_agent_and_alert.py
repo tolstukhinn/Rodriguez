@@ -1,12 +1,58 @@
 import time
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-options = webdriver.ChromeOptions()
-options.add_argument("user-agent=Mozilla/5.0 (iPad; CPU OS 16_7_12 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 CriOS/140.0.7339.774")
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome()
 
+wait = WebDriverWait(driver, 10, poll_frequency=1)
+driver.get("https://demoqa.com/alerts")
 
-# driver.get("https://intoli.com/blog/not-possible-to-block-chrome-headless/chrome-headless-test.html")
-driver.get("https://vk.com")
+ALERT_BUTTON = ("xpath", "//button[@id='alertButton']")
+TIMER_ALERT_BUTTON = ("xpath", "//button[@id='timerAlertButton']")
+CONFIRM_BUTTON = ("xpath", "//button[@id='confirmButton']")
+PROMT_BUTTON = ("xpath", "//button[@id='promtButton']")
 
+driver.find_element(*ALERT_BUTTON).click()
 time.sleep(3)
+alert = wait.until(EC.alert_is_present())
+alert.accept()
+time.sleep(3)
+
+driver.find_element(*TIMER_ALERT_BUTTON).click()
+time.sleep(3)
+alert = wait.until(EC.alert_is_present())
+alert.accept()
+time.sleep(3)
+
+driver.find_element(*CONFIRM_BUTTON).click()
+time.sleep(3)
+alert = wait.until(EC.alert_is_present())
+alert.dismiss()
+time.sleep(3)
+
+driver.find_element(*PROMT_BUTTON).click()
+time.sleep(3)
+alert = wait.until(EC.alert_is_present())
+alert.send_keys("Nikita")
+alert.accept()
+time.sleep(3)
+
+
+
+
+
+
+
+
+
+
+# options = webdriver.ChromeOptions()
+# options.add_argument("--disable-blink-features=AutomationControlled")
+# options.add_experimental_option("excludeSwitches", ["enable-automation"])
+# options.add_experimental_option("useAutomationExtension", False)
+# options.add_argument("--remote-debugging-port=9222")
+# driver = webdriver.Chrome(options=options)
+# driver.get("https://intoli.com/blog/not-possible-to-block-chrome-headless/chrome-headless-test.html")
+# driver.get("https://vk.com")
+# time.sleep(3)
