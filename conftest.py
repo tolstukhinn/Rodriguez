@@ -12,3 +12,11 @@ def driver(request):
     driver = webdriver.Chrome()
     request.cls.driver = driver
 
+@pytest.fixture(autouse=True)
+def driver2(request):
+    driver = webdriver.Chrome()
+    request.cls.driver = driver
+    print("Before")
+    yield
+    print("After")
+    driver.quit()
