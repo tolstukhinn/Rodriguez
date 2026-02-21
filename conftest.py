@@ -26,4 +26,5 @@ def setup_environment():
         for key, value in properties.items():
             file.write(f"{key}={value}\n")
 
+
 #  $env:STAGE="stage1"; $env:BROWSER="chrome"; $env:PYTHON="3.13"; $env:MR="https://gitlub.sber.ru/SPG-2517"; pytest exploring_pytest\test_allure.py --alluredir=allure-results
