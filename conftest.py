@@ -8,6 +8,13 @@ from selenium.webdriver.chrome.options import Options
 def driver(request):
     chrome_options = Options()
     chrome_options.add_experimental_option("excludeSwitches",["enable-logging"])
+    chrome_options.add_argument("--window-size=2560,1440")
+    chrome_options.add_argument("--incognito")
+    chrome_options.add_experimental_option("prefs", {
+        "credentials_enable_service": False,
+        "profile.password_manager_enabled": False
+    }
+                                    )
     driver = webdriver.Chrome(options=chrome_options)
     request.cls.driver = driver
     yield
@@ -25,6 +32,7 @@ def setup_environment():
     with open("allure-results/environment.properties", 'w') as file:
         for key, value in properties.items():
             file.write(f"{key}={value}\n")
+
 
 
 #  $env:STAGE="stage1"; $env:BROWSER="chrome"; $env:PYTHON="3.13"; $env:MR="https://gitlub.sber.ru/SPG-2517"; pytest exploring_pytest\test_allure.py --alluredir=allure-results
